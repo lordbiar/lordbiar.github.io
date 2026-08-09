@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Refuge to Reach Tech Foundation — Empowering Communities Through Digital Education</title>
+  <meta name="description" content="Refuge to Reach Tech Foundation is a non-profit organization empowering refugees and underserved communities in Kakuma, Kenya through digital education, technology access, and innovation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --rrtf-blue: #0072BC;
+      --rrtf-green: #2E8B6E;
+      --rrtf-gray: #3D4550;
+      --rrtf-light-blue: rgba(0,114,188,0.12);
+      --rrtf-light-green: rgba(46,139,110,0.12);
+      --rrtf-light-gray: rgba(61,69,80,0.10);
+      --text-primary: #1a1a1a;
+      --text-secondary: #555;
+      --text-tertiary: #888;
+      --text-quaternary: #bbb;
+      --border: #e5e5e5;
+      --surface: #ffffff;
+      --hover: #f5f5f5;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: var(--text-primary);
+      line-height: 1.6;
+      background: var(--surface);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* Navigation */
+    .rrtf-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.95);
+      z-index: 100;
+      backdrop-filter: blur(8px);
+    }
+
+    .rrtf-nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 500;
+      font-size: 17px;
+      color: var(--text-primary);
+    }
+
+    .rrtf-nav-logo {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+    }
+
+    .rrtf-nav-links {
+      display: flex;
+      gap: 8px;
+    }
+
+    .rrtf-nav-links a {
+      padding: 8px 14px;
+      border-radius: 8px;
+      color: var(--text-secondary);
+      font-size: 14px;
+      font-weight: 400;
+      transition: all 0.15s ease;
+    }
+
+    .rrtf-nav-links a:hover {
+      background: var(--hover);
+      color: var(--text-primary);
+    }
+
+    .rrtf-nav-cta {
+      background: var(--text-primary) !important;
+      color: #fff !important;
+      font-weight: 500 !important;
+    }
+
+    .rrtf-nav-cta:hover {
+      opacity: 0.85;
+    }
+
+    /* Hero */
+    .rrtf-hero {
+      padding: 64px 24px 56px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .rrtf-hero-logo {
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 28px;
+    }
+
+    .rrtf-hero h1 {
+      font-size: 36px;
+      font-weight: 500;
+      line-height: 1.15;
+      margin: 0 0 12px;
+      letter-spacing: 0.02em;
+    }
+
+    .rrtf-hero-subtitle {
+      font-size: 18px;
+      color: var(--text-secondary);
+      max-width: 560px;
+      margin: 0 auto 16px;
+      line-height: 1.5;
+    }
+
+    .rrtf-hero-location {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      color: var(--text-tertiary);
+      margin-bottom: 28px;
+    }
+
+    .rrtf-hero-location svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    .rrtf-hero-tagline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      border-radius: 100px;
+      background: var(--rrtf-light-blue);
+      color: var(--rrtf-blue);
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 28px;
+    }
+
+    .rrtf-hero-tagline svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .rrtf-hero-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .rrtf-btn {
+      padding: 12px 28px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      transition: all 0.15s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: inherit;
+    }
+
+    .rrtf-btn-primary {
+      background: var(--text-primary);
+      color: #fff;
+    }
+
+    .rrtf-btn-primary:hover {
+      opacity: 0.85;
+    }
+
+    .rrtf-btn-secondary {
+      background: transparent;
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+    }
+
+    .rrtf-btn-secondary:hover {
+      background: var(--hover);
+    }
+
+    /* Section base */
+    .rrtf-section {
+      padding: 48px 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .rrtf-section-header {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .rrtf-section-label {
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-tertiary);
+      margin-bottom: 8px;
+    }
+
+    .rrtf-section h2 {
+      font-size: 28px;
+      font-weight: 500;
+      margin: 0 0 8px;
+      line-height: 1.2;
+    }
+
+    .rrtf-section-desc {
+      font-size: 16px;
+      color: var(--text-secondary);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
+    /* Mission/Vision cards */
+    .rrtf-mission-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .rrtf-card {
+      padding: 24px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      transition: all 0.2s ease;
+    }
+
+    .rrtf-card:hover {
+      border-color: var(--text-quaternary);
+      transform: translateY(-2px);
+    }
+
+    .rrtf-card-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .rrtf-card h3 {
+      font-size: 18px;
+      font-weight: 500;
+      margin: 0 0 8px;
+    }
+
+    .rrtf-card p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* Values */
+    .rrtf-values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .rrtf-value-chip {
+      padding: 14px 16px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      text-align: center;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.15s ease;
+      cursor: default;
+    }
+
+    .rrtf-value-chip:hover {
+      background: var(--hover);
+      border-color: var(--text-quaternary);
+    }
+
+    /* Programs */
+    .rrtf-programs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      max-width: 880px;
+      margin: 0 auto;
+    }
+
+    .rrtf-program {
+      padding: 28px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      transition: all 0.2s ease;
+    }
+
+    .rrtf-program:hover {
+      border-color: var(--text-quaternary);
+    }
+
+    .rrtf-program-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+
+    .rrtf-program-badge svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .rrtf-program h3 {
+      font-size: 18px;
+      font-weight: 500;
+      margin: 0 0 12px;
+    }
+
+    .rrtf-program ul {
+      margin: 0;
+      padding-left: 18px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .rrtf-program li {
+      margin-bottom: 4px;
+    }
+
+    .rrtf-program-target {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--text-tertiary);
+    }
+
+    .rrtf-program-target strong {
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    /* Beneficiaries */
+    .rrtf-beneficiaries {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .rrtf-beneficiary {
+      padding: 10px 18px;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      font-size: 14px;
+      font-weight: 400;
+      transition: all 0.15s ease;
+    }
+
+    .rrtf-beneficiary:hover {
+      background: var(--hover);
+      border-color: var(--text-quaternary);
+    }
+
+    /* Goals */
+    .rrtf-goals-list {
+      max-width: 640px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .rrtf-goal {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px 20px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      transition: all 0.15s ease;
+    }
+
+    .rrtf-goal:hover {
+      background: var(--hover);
+    }
+
+    .rrtf-goal-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--text-primary);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 500;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .rrtf-goal-text {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      padding-top: 2px;
+    }
+
+    /* Challenges — single text box */
+    .rrtf-challenges-box {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 28px 32px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .rrtf-challenges-box h3 {
+      font-size: 16px;
+      font-weight: 500;
+      margin: 0 0 16px;
+      color: var(--text-primary);
+    }
+
+    .rrtf-challenges-box ul {
+      margin: 0;
+      padding-left: 20px;
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    .rrtf-challenges-box li {
+      margin-bottom: 6px;
+    }
+
+    /* Contact Section */
+    .rrtf-contact-section {
+      padding: 48px 24px;
+      border-bottom: 1px solid var(--border);
+      background: var(--hover);
+    }
+
+    .rrtf-contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .rrtf-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      transition: all 0.15s ease;
+    }
+
+    .rrtf-contact-item:hover {
+      border-color: var(--text-quaternary);
+    }
+
+    .rrtf-contact-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .rrtf-contact-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .rrtf-contact-item h4 {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin: 0 0 6px;
+    }
+
+    .rrtf-contact-item a,
+    .rrtf-contact-item span {
+      font-size: 14px;
+      color: var(--text-primary);
+      text-decoration: none;
+      line-height: 1.6;
+      display: block;
+    }
+
+    .rrtf-contact-item a:hover {
+      text-decoration: underline;
+    }
+
+    /* CTA Section */
+    .rrtf-cta-section {
+      padding: 56px 24px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .rrtf-cta-section h2 {
+      font-size: 28px;
+      font-weight: 500;
+      margin: 0 0 12px;
+    }
+
+    .rrtf-cta-section p {
+      font-size: 16px;
+      color: var(--text-secondary);
+      max-width: 520px;
+      margin: 0 auto 32px;
+      line-height: 1.5;
+    }
+
+    .rrtf-cta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      max-width: 720px;
+      margin: 0 auto 32px;
+    }
+
+    .rrtf-cta-card {
+      padding: 28px 20px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      text-align: center;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .rrtf-cta-card:hover {
+      border-color: var(--text-quaternary);
+      background: var(--hover);
+    }
+
+    .rrtf-cta-card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+
+    .rrtf-cta-card h4 {
+      font-size: 16px;
+      font-weight: 500;
+      margin: 0 0 6px;
+    }
+
+    .rrtf-cta-card p {
+      font-size: 13px;
+      color: var(--text-tertiary);
+      margin: 0;
+    }
+
+    /* Footer */
+    .rrtf-footer {
+      padding: 40px 24px;
+      text-align: center;
+    }
+
+    .rrtf-footer-brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      font-weight: 500;
+      font-size: 16px;
+    }
+
+    .rrtf-footer-brand svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    .rrtf-footer-contact {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px 28px;
+      margin-bottom: 20px;
+    }
+
+    .rrtf-footer-contact a,
+    .rrtf-footer-contact span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    .rrtf-footer-contact a:hover {
+      color: var(--text-primary);
+      text-decoration: underline;
+    }
+
+    .rrtf-footer-contact svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    .rrtf-footer p {
+      font-size: 13px;
+      color: var(--text-tertiary);
+      margin: 0 0 4px;
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .rrtf-nav-links { display: none; }
+      .rrtf-hero h1 { font-size: 28px; }
+      .rrtf-section h2 { font-size: 24px; }
+      .rrtf-hero-actions { flex-direction: column; align-items: center; }
+      .rrtf-btn { width: 100%; max-width: 280px; justify-content: center; }
+      .rrtf-footer-contact { flex-direction: column; gap: 10px; }
+      .rrtf-challenges-box { padding: 20px 24px; }
+    }
+
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body>
+
+<div class="rrtf-wrapper">
+  <!-- Navigation -->
+  <nav class="rrtf-nav">
+    <div class="rrtf-nav-brand">
+      <svg class="rrtf-nav-logo" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100 10C50.3 10 10 50.3 10 100" stroke="#0072BC" stroke-width="14" stroke-linecap="round"/>
+        <path d="M190 100C190 149.7 149.7 190 100 190" stroke="#2E8B6E" stroke-width="14" stroke-linecap="round"/>
+        <path d="M100 30C61.3 30 30 61.3 30 100" stroke="#0072BC" stroke-width="8" stroke-linecap="round" opacity="0.6"/>
+        <path d="M170 100C170 138.7 138.7 170 100 170" stroke="#2E8B6E" stroke-width="8" stroke-linecap="round" opacity="0.6"/>
+        <path d="M30 100C30 138.7 61.3 170 100 170" stroke="#3D4550" stroke-width="10" stroke-linecap="round"/>
+        <text x="38" y="118" font-family="Inter, sans-serif" font-size="52" font-weight="600" fill="#0072BC">RR</text>
+        <text x="102" y="118" font-family="Inter, sans-serif" font-size="52" font-weight="600" fill="#2E8B6E">T</text>
+        <text x="132" y="118" font-family="Inter, sans-serif" font-size="52" font-weight="600" fill="#3D4550">F</text>
+      </svg>
+      Refuge to Reach Tech Foundation
+    </div>
+    <div class="rrtf-nav-links">
+      <a href="#about">About</a>
+      <a href="#programs">Programs</a>
+      <a href="#impact">Impact</a>
+      <a href="#contact">Contact</a>
+      <a href="#get-involved" class="rrtf-nav-cta">Get involved</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="rrtf-hero">
+    <svg class="rrtf-hero-logo" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M100 10C50.3 10 10 50.3 10 100" stroke="#0072BC" stroke-width="14" stroke-linecap="round"/>
+      <path d="M190 100C190 149.7 149.7 190 100 190" stroke="#2E8B6E" stroke-width="14" stroke-linecap="round"/>
+      <path d="M100 30C61.3 30 30 61.3 30 100" stroke="#0072BC" stroke-width="8" stroke-linecap="round" opacity="0.5"/>
+      <path d="M170 100C170 138.7 138.7 170 100 170" stroke="#2E8B6E" stroke-width="8" stroke-linecap="round" opacity="0.5"/>
+      <path d="M30 100C30 138.7 61.3 170 100 170" stroke="#3D4550" stroke-width="10" stroke-linecap="round"/>
+      <text x="38" y="118" font-family="Inter, sans-serif" font-size="52" font-weight="600" fill="#0072BC">RR</text>
+      <text x="102" y="118" font-family="Inter, sans-serif" font-size="52" font-weight="600" fill="#2E8B6E">T</text>
+      <text x="132" y="118" font-family="Inter, sans-serif" font-size="52" font-weight="600" fill="#3D4550">F</text>
+    </svg>
+
+    <div class="rrtf-hero-tagline">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+        <path d="M2 17l10 5 10-5"/>
+        <path d="M2 12l10 5 10-5"/>
+      </svg>
+      Non-profit, community-driven organization
+    </div>
+
+    <h1>Empowering communities<br>through digital education</h1>
+    <p class="rrtf-hero-subtitle">Bridging the digital divide for refugees and underserved communities through technology access, skills training, and innovation.</p>
+
+    <div class="rrtf-hero-location">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+        <circle cx="12" cy="10" r="3"/>
+      </svg>
+      Kakuma, West Turkana County, Kenya
+    </div>
+
+    <div class="rrtf-hero-actions">
+      <a href="#get-involved" class="rrtf-btn rrtf-btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+        </svg>
+        Support our mission
+      </a>
+      <a href="#programs" class="rrtf-btn rrtf-btn-secondary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M12 16v-4"/>
+          <path d="M12 8h.01"/>
+        </svg>
+        Explore programs
+      </a>
+    </div>
+  </section>
+
+  <!-- About / Mission / Vision -->
+  <section class="rrtf-section" id="about">
+    <div class="rrtf-section-header">
+      <div class="rrtf-section-label">Who we are</div>
+      <h2>Our purpose</h2>
+      <p class="rrtf-section-desc">Technology is not a privilege but a necessity for education, employment, and sustainable development.</p>
+    </div>
+
+    <div class="rrtf-mission-grid">
+      <div class="rrtf-card">
+        <div class="rrtf-card-icon" style="background: var(--rrtf-light-blue);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0072BC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M2 12h20"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+        </div>
+        <h3>Vision</h3>
+        <p>To build digitally empowered communities where every child and young person has equal access to technology, quality digital education, and opportunities to achieve their full potential.</p>
+      </div>
+
+      <div class="rrtf-card">
+        <div class="rrtf-card-icon" style="background: var(--rrtf-light-green);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E8B6E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 20h9"/>
+            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+          </svg>
+        </div>
+        <h3>Mission</h3>
+        <p>To transform lives by providing accessible digital education, technology resources, and innovative learning opportunities that equip refugees and underserved communities with skills for education, employment, entrepreneurship, and sustainable development.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Values -->
+  <section class="rrtf-section">
+    <div class="rrtf-section-header">
+      <div class="rrtf-section-label">What guides us</div>
+      <h2>Core values</h2>
+    </div>
+
+    <div class="rrtf-values-grid">
+      <div class="rrtf-value-chip">Integrity</div>
+      <div class="rrtf-value-chip">Innovation</div>
+      <div class="rrtf-value-chip">Inclusion</div>
+      <div class="rrtf-value-chip">Excellence</div>
+      <div class="rrtf-value-chip">Collaboration</div>
+      <div class="rrtf-value-chip">Accountability</div>
+      <div class="rrtf-value-chip">Lifelong learning</div>
+      <div class="rrtf-value-chip">Community empowerment</div>
+    </div>
+  </section>
+
+  <!-- Programs -->
+  <section class="rrtf-section" id="programs">
+    <div class="rrtf-section-header">
+      <div class="rrtf-section-label">What we do</div>
+      <h2>Core programs</h2>
+      <p class="rrtf-section-desc">Practical, hands-on training and resources designed for real-world impact.</p>
+    </div>
+
+    <div class="rrtf-programs-grid">
+      <div class="rrtf-program">
+        <div class="rrtf-program-badge" style="background: var(--rrtf-light-blue); color: var(--rrtf-blue);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+            <line x1="8" y1="21" x2="16" y2="21"/>
+            <line x1="12" y1="17" x2="12" y2="21"/>
+          </svg>
+          Digital skills
+        </div>
+        <h3>Basic computer skills training</h3>
+        <ul>
+          <li>Computer fundamentals</li>
+          <li>Microsoft Word, Excel, PowerPoint</li>
+          <li>Internet and email</li>
+          <li>Digital communication</li>
+          <li>Online safety and cybersecurity</li>
+        </ul>
+        <div class="rrtf-program-target"><strong>For:</strong> Youth, women, adults, job seekers, refugees, host community members</div>
+      </div>
+
+      <div class="rrtf-program">
+        <div class="rrtf-program-badge" style="background: var(--rrtf-light-green); color: var(--rrtf-green);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+          School access
+        </div>
+        <h3>Computer access for school children</h3>
+        <ul>
+          <li>Computers for CBC Grade 6 to Grade 9</li>
+          <li>Digital literacy improvement</li>
+          <li>Online research skills</li>
+          <li>Technology confidence building</li>
+          <li>Preparation for a digital future</li>
+        </ul>
+        <div class="rrtf-program-target"><strong>For:</strong> School children in underserved communities</div>
+      </div>
+
+      <div class="rrtf-program">
+        <div class="rrtf-program-badge" style="background: var(--rrtf-light-gray); color: var(--rrtf-gray);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a10 10 0 1 0 10 10H12V2z"/>
+            <path d="M12 2a10 10 0 0 1 10 10"/>
+            <path d="M12 12L2.5 8.5"/>
+          </svg>
+          AI literacy
+        </div>
+        <h3>Basic artificial intelligence</h3>
+        <ul>
+          <li>Introduction to AI concepts</li>
+          <li>Everyday AI applications</li>
+          <li>Responsible AI use</li>
+          <li>AI tools for education</li>
+          <li>AI for productivity and creativity</li>
+        </ul>
+        <div class="rrtf-program-target"><strong>For:</strong> Learners of all ages</div>
+      </div>
+
+      <div class="rrtf-program">
+        <div class="rrtf-program-badge" style="background: var(--rrtf-light-blue); color: var(--rrtf-blue);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="16 18 22 12 16 6"/>
+            <polyline points="8 6 2 12 8 18"/>
+          </svg>
+          Web development
+        </div>
+        <h3>Website development</h3>
+        <ul>
+          <li>HTML and CSS fundamentals</li>
+          <li>Basic JavaScript</li>
+          <li>Responsive web design</li>
+          <li>Website publishing</li>
+          <li>Personal portfolio development</li>
+        </ul>
+        <div class="rrtf-program-target"><strong>For:</strong> Young people seeking employable tech skills</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Beneficiaries -->
+  <section class="rrtf-section">
+    <div class="rrtf-section-header">
+      <div class="rrtf-section-label">Who we serve</div>
+      <h2>Our beneficiaries</h2>
+    </div>
+
+    <div class="rrtf-beneficiaries">
+      <div class="rrtf-beneficiary">Refugee youth</div>
+      <div class="rrtf-beneficiary">School children</div>
+      <div class="rrtf-beneficiary">Women and girls</div>
+      <div class="rrtf-beneficiary">Teachers</div>
+      <div class="rrtf-beneficiary">Community members</div>
+      <div class="rrtf-beneficiary">Youth groups</div>
+      <div class="rrtf-beneficiary">Local schools</div>
+      <div class="rrtf-beneficiary">Vulnerable households</div>
+    </div>
+  </section>
+
+  <!-- Goals / Impact -->
+  <section class="rrtf-section" id="impact">
+    <div class="rrtf-section-header">
+      <div class="rrtf-section-label">Where we are headed</div>
+      <h2>Our goals</h2>
+      <p class="rrtf-section-desc">Long-term outcomes we are working toward every day.</p>
+    </div>
+
+    <div class="rrtf-goals-list">
+      <div class="rrtf-goal">
+        <div class="rrtf-goal-num">1</div>
+        <div class="rrtf-goal-text">Bridge the digital divide between refugee, host, and underserved communities</div>
+      </div>
+      <div class="rrtf-goal">
+        <div class="rrtf-goal-num">2</div>
+        <div class="rrtf-goal-text">Increase access to quality digital education and learning resources</div>
+      </div>
+      <div class="rrtf-goal">
+        <div class="rrtf-goal-num">3</div>
+        <div class="rrtf-goal-text">Improve digital literacy across refugee and host communities</div>
+      </div>
+      <div class="rrtf-goal">
+        <div class="rrtf-goal-num">4</div>
+        <div class="rrtf-goal-text">Empower young people with employable digital skills</div>
+      </div>
+      <div class="rrtf-goal">
+        <div class="rrtf-goal-num">5</div>
+        <div class="rrtf-goal-text">Support innovation and entrepreneurship in underserved areas</div>
+      </div>
+      <div class="rrtf-goal">
+        <div class="rrtf-goal-num">6</div>
+        <div class="rrtf-goal-text">Create pathways to decent employment and self-reliance</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Challenges — single text box, names only -->
+  <section class="rrtf-section">
+    <div class="rrtf-section-header">
+      <div class="rrtf-section-label">Reality check</div>
+      <h2>Challenges we face</h2>
+    </div>
+
+    <div class="rrtf-challenges-box">
+      <h3>Key challenges</h3>
+      <ul>
+        <li>Limited access to computers</li>
+        <li>Financial constraints</li>
+        <li>Limited internet connectivity</li>
+        <li>Shortage of qualified trainers</li>
+        <li>Low digital awareness</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="rrtf-contact-section" id="contact">
+    <div class="rrtf-section-header" style="margin-bottom: 32px;">
+      <div class="rrtf-section-label">Reach us</div>
+      <h2>Contact information</h2>
+      <p class="rrtf-section-desc">Based in Kakuma, serving West Turkana County and beyond.</p>
+    </div>
+
+    <div class="rrtf-contact-grid">
+      <div class="rrtf-contact-item">
+        <div class="rrtf-contact-icon" style="background: var(--rrtf-light-blue);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0072BC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </div>
+        <div>
+          <h4>Phone</h4>
+          <a href="tel:+254790544211">+254 790 544211</a>
+          <a href="tel:+254703494870">+254 703 494870</a>
+          <a href="tel:+254701497377">+254 701 497377</a>
+        </div>
+      </div>
+
+      <div class="rrtf-contact-item">
+        <div class="rrtf-contact-icon" style="background: var(--rrtf-light-green);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2E8B6E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </div>
+        <div>
+          <h4>Email</h4>
+          <a href="mailto:refugetoreach@gmail.com">refugetoreach@gmail.com</a>
+        </div>
+      </div>
+
+      <div class="rrtf-contact-item">
+        <div class="rrtf-contact-icon" style="background: var(--rrtf-light-gray);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#3D4550" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <div>
+          <h4>Location</h4>
+          <span>Kakuma, West Turkana County<br>Kenya</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / Get Involved -->
+  <section class="rrtf-cta-section" id="get-involved">
+    <h2>Join us in building digital futures</h2>
+    <p>Digital skills transform lives and open doors to education, employment, and innovation. Together, we can ensure every learner has the opportunity to thrive.</p>
+
+    <div class="rrtf-cta-grid">
+      <div class="rrtf-cta-card">
+        <div class="rrtf-cta-card-icon" style="background: var(--rrtf-light-blue);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0072BC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <h4>Partner with us</h4>
+        <p>Organizations, schools, and companies</p>
+      </div>
+
+      <div class="rrtf-cta-card">
+        <div class="rrtf-cta-card-icon" style="background: var(--rrtf-light-green);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2E8B6E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="1" x2="12" y2="23"/>
+            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+          </svg>
+        </div>
+        <h4>Make a donation</h4>
+        <p>Fund equipment, training, and resources</p>
+      </div>
+
+      <div class="rrtf-cta-card">
+        <div class="rrtf-cta-card-icon" style="background: var(--rrtf-light-gray);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3D4550" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+          </svg>
+        </div>
+        <h4>Volunteer</h4>
+        <p>Share your skills and time</p>
+      </div>
+    </div>
+
+    <a href="mailto:refugetoreach@gmail.com" class="rrtf-btn rrtf-btn-primary">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+        <polyline points="22,6 12,13 2,6"/>
+      </svg>
+      Contact us
+    </a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="rrtf-footer">
+    <div class="rrtf-footer-brand">
+      <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100 10C50.3 10 10 50.3 10 100" stroke="#0072BC" stroke-width="14" stroke-linecap="round"/>
+        <path d="M190 100C190 149.7 149.7 190 100 190" stroke="#2E8B6E" stroke-width="14" stroke-linecap="round"/>
+        <path d="M30 100C30 138.7 61.3 170 100 170" stroke="#3D4550" stroke-width="10" stroke-linecap="round"/>
+        <text x="38" y="118" font-family="Inter, sans-serif" font-size="52" font-weight="600" fill="#0072BC">RR</text>
+        <text x="102" y="118" font-family="Inter, sans-serif" font-size="52" font-weight="600" fill="#2E8B6E">T</text>
+        <text x="132" y="118" font-family="Inter, sans-serif" font-size="52" font-weight="600" fill="#3D4550">F</text>
+      </svg>
+      Refuge to Reach Tech Foundation
+    </div>
+
+    <div class="rrtf-footer-contact">
+      <a href="tel:+254790544211">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+        +254 790 544211
+      </a>
+      <a href="tel:+254703494870">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+        +254 703 494870
+      </a>
+      <a href="tel:+254701497377">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+        +254 701 497377
+      </a>
+      <a href="mailto:refugetoreach@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+        refugetoreach@gmail.com
+      </a>
+      <span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+        Kakuma, West Turkana County, Kenya
+      </span>
+    </div>
+
+    <p>Empowering refugees and underserved communities through technology.</p>
+    <p style="margin-top: 12px; font-size: 12px;">Built with purpose. Open to partnership.</p>
+  </footer>
+</div>
+
+</body>
+</html>
