@@ -1,1122 +1,645 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Refuge to Reach Tech Foundation — Empowering Communities Through Digital Education</title>
-  <meta name="description" content="Refuge to Reach Tech Foundation is a non-profit organization empowering refugees and underserved communities in Kakuma, Kenya through digital education, technology access, and innovation.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --rrtf-blue: #0072BC;
-      --rrtf-green: #2E8B6E;
-      --rrtf-gray: #3D4550;
-      --rrtf-light-blue: rgba(0,114,188,0.12);
-      --rrtf-light-green: rgba(46,139,110,0.12);
-      --rrtf-light-gray: rgba(61,69,80,0.10);
-      --text-primary: #1a1a1a;
-      --text-secondary: #555;
-      --text-tertiary: #888;
-      --text-quaternary: #bbb;
-      --border: #e5e5e5;
-      --surface: #ffffff;
-      --hover: #f5f5f5;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      color: var(--text-primary);
-      line-height: 1.6;
-      background: var(--surface);
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a { color: inherit; text-decoration: none; }
-
-    /* Navigation */
-    .rrtf-nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px 24px;
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      background: rgba(255,255,255,0.95);
-      z-index: 100;
-      backdrop-filter: blur(8px);
-    }
-
-    .rrtf-nav-brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 500;
-      font-size: 17px;
-      color: var(--text-primary);
-    }
-
-    .rrtf-nav-logo {
-      width: 40px;
-      height: 40px;
-      flex-shrink: 0;
-    }
-
-    .rrtf-nav-links {
-      display: flex;
-      gap: 8px;
-    }
-
-    .rrtf-nav-links a {
-      padding: 8px 14px;
-      border-radius: 8px;
-      color: var(--text-secondary);
-      font-size: 14px;
-      font-weight: 400;
-      transition: all 0.15s ease;
-    }
-
-    .rrtf-nav-links a:hover {
-      background: var(--hover);
-      color: var(--text-primary);
-    }
-
-    .rrtf-nav-cta {
-      background: var(--text-primary) !important;
-      color: #fff !important;
-      font-weight: 500 !important;
-    }
-
-    .rrtf-nav-cta:hover {
-      opacity: 0.85;
-    }
-
-    /* Hero */
-    .rrtf-hero {
-      padding: 64px 24px 56px;
-      text-align: center;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .rrtf-hero-logo {
-      width: 140px;
-      height: 140px;
-      margin: 0 auto 28px;
-    }
-
-    .rrtf-hero h1 {
-      font-size: 36px;
-      font-weight: 500;
-      line-height: 1.15;
-      margin: 0 0 12px;
-      letter-spacing: 0.02em;
-    }
-
-    .rrtf-hero-subtitle {
-      font-size: 18px;
-      color: var(--text-secondary);
-      max-width: 560px;
-      margin: 0 auto 16px;
-      line-height: 1.5;
-    }
-
-    .rrtf-hero-location {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 14px;
-      color: var(--text-tertiary);
-      margin-bottom: 28px;
-    }
-
-    .rrtf-hero-location svg {
-      width: 16px;
-      height: 16px;
-      flex-shrink: 0;
-    }
-
-    .rrtf-hero-tagline {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 18px;
-      border-radius: 100px;
-      background: var(--rrtf-light-blue);
-      color: var(--rrtf-blue);
-      font-size: 14px;
-      font-weight: 500;
-      margin-bottom: 28px;
-    }
-
-    .rrtf-hero-tagline svg {
-      width: 16px;
-      height: 16px;
-    }
-
-    .rrtf-hero-actions {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .rrtf-btn {
-      padding: 12px 28px;
-      border-radius: 10px;
-      font-size: 15px;
-      font-weight: 500;
-      cursor: pointer;
-      border: none;
-      transition: all 0.15s ease;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: inherit;
-    }
-
-    .rrtf-btn-primary {
-      background: var(--text-primary);
-      color: #fff;
-    }
-
-    .rrtf-btn-primary:hover {
-      opacity: 0.85;
-    }
-
-    .rrtf-btn-secondary {
-      background: transparent;
-      color: var(--text-primary);
-      border: 1px solid var(--border);
-    }
-
-    .rrtf-btn-secondary:hover {
-      background: var(--hover);
-    }
-
-    /* Section base */
-    .rrtf-section {
-      padding: 48px 24px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .rrtf-section-header {
-      text-align: center;
-      margin-bottom: 36px;
-    }
-
-    .rrtf-section-label {
-      font-size: 12px;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-tertiary);
-      margin-bottom: 8px;
-    }
-
-    .rrtf-section h2 {
-      font-size: 28px;
-      font-weight: 500;
-      margin: 0 0 8px;
-      line-height: 1.2;
-    }
-
-    .rrtf-section-desc {
-      font-size: 16px;
-      color: var(--text-secondary);
-      max-width: 520px;
-      margin: 0 auto;
-      line-height: 1.5;
-    }
-
-    /* Mission/Vision cards */
-    .rrtf-mission-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 16px;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .rrtf-card {
-      padding: 24px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      transition: all 0.2s ease;
-    }
-
-    .rrtf-card:hover {
-      border-color: var(--text-quaternary);
-      transform: translateY(-2px);
-    }
-
-    .rrtf-card-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 16px;
-    }
-
-    .rrtf-card h3 {
-      font-size: 18px;
-      font-weight: 500;
-      margin: 0 0 8px;
-    }
-
-    .rrtf-card p {
-      font-size: 14px;
-      color: var(--text-secondary);
-      margin: 0;
-      line-height: 1.6;
-    }
-
-    /* Values */
-    .rrtf-values-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 12px;
-      max-width: 720px;
-      margin: 0 auto;
-    }
-
-    .rrtf-value-chip {
-      padding: 14px 16px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      text-align: center;
-      font-size: 14px;
-      font-weight: 500;
-      transition: all 0.15s ease;
-      cursor: default;
-    }
-
-    .rrtf-value-chip:hover {
-      background: var(--hover);
-      border-color: var(--text-quaternary);
-    }
-
-    /* Programs */
-    .rrtf-programs-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 16px;
-      max-width: 880px;
-      margin: 0 auto;
-    }
-
-    .rrtf-program {
-      padding: 28px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      transition: all 0.2s ease;
-    }
-
-    .rrtf-program:hover {
-      border-color: var(--text-quaternary);
-    }
-
-    .rrtf-program-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 12px;
-      border-radius: 100px;
-      font-size: 12px;
-      font-weight: 500;
-      margin-bottom: 16px;
-    }
-
-    .rrtf-program-badge svg {
-      width: 14px;
-      height: 14px;
-    }
-
-    .rrtf-program h3 {
-      font-size: 18px;
-      font-weight: 500;
-      margin: 0 0 12px;
-    }
-
-    .rrtf-program ul {
-      margin: 0;
-      padding-left: 18px;
-      font-size: 14px;
-      color: var(--text-secondary);
-      line-height: 1.7;
-    }
-
-    .rrtf-program li {
-      margin-bottom: 4px;
-    }
-
-    .rrtf-program-target {
-      margin-top: 16px;
-      padding-top: 16px;
-      border-top: 1px solid var(--border);
-      font-size: 12px;
-      color: var(--text-tertiary);
-    }
-
-    .rrtf-program-target strong {
-      color: var(--text-secondary);
-      font-weight: 500;
-    }
-
-    /* Beneficiaries */
-    .rrtf-beneficiaries {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    .rrtf-beneficiary {
-      padding: 10px 18px;
-      border-radius: 100px;
-      border: 1px solid var(--border);
-      font-size: 14px;
-      font-weight: 400;
-      transition: all 0.15s ease;
-    }
-
-    .rrtf-beneficiary:hover {
-      background: var(--hover);
-      border-color: var(--text-quaternary);
-    }
-
-    /* Goals */
-    .rrtf-goals-list {
-      max-width: 640px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .rrtf-goal {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      padding: 16px 20px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      transition: all 0.15s ease;
-    }
-
-    .rrtf-goal:hover {
-      background: var(--hover);
-    }
-
-    .rrtf-goal-num {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: var(--text-primary);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 13px;
-      font-weight: 500;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-
-    .rrtf-goal-text {
-      font-size: 15px;
-      color: var(--text-secondary);
-      line-height: 1.5;
-      padding-top: 2px;
-    }
-
-    /* Challenges — single text box */
-    .rrtf-challenges-box {
-      max-width: 640px;
-      margin: 0 auto;
-      padding: 28px 32px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: var(--surface);
-    }
-
-    .rrtf-challenges-box h3 {
-      font-size: 16px;
-      font-weight: 500;
-      margin: 0 0 16px;
-      color: var(--text-primary);
-    }
-
-    .rrtf-challenges-box ul {
-      margin: 0;
-      padding-left: 20px;
-      font-size: 15px;
-      color: var(--text-secondary);
-      line-height: 1.8;
-    }
-
-    .rrtf-challenges-box li {
-      margin-bottom: 6px;
-    }
-
-    /* Contact Section */
-    .rrtf-contact-section {
-      padding: 48px 24px;
-      border-bottom: 1px solid var(--border);
-      background: var(--hover);
-    }
-
-    .rrtf-contact-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .rrtf-contact-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      padding: 20px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: var(--surface);
-      transition: all 0.15s ease;
-    }
-
-    .rrtf-contact-item:hover {
-      border-color: var(--text-quaternary);
-    }
-
-    .rrtf-contact-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .rrtf-contact-icon svg {
-      width: 20px;
-      height: 20px;
-    }
-
-    .rrtf-contact-item h4 {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--text-tertiary);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin: 0 0 6px;
-    }
-
-    .rrtf-contact-item a,
-    .rrtf-contact-item span {
-      font-size: 14px;
-      color: var(--text-primary);
-      text-decoration: none;
-      line-height: 1.6;
-      display: block;
-    }
-
-    .rrtf-contact-item a:hover {
-      text-decoration: underline;
-    }
-
-    /* CTA Section */
-    .rrtf-cta-section {
-      padding: 56px 24px;
-      text-align: center;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .rrtf-cta-section h2 {
-      font-size: 28px;
-      font-weight: 500;
-      margin: 0 0 12px;
-    }
-
-    .rrtf-cta-section p {
-      font-size: 16px;
-      color: var(--text-secondary);
-      max-width: 520px;
-      margin: 0 auto 32px;
-      line-height: 1.5;
-    }
-
-    .rrtf-cta-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-      max-width: 720px;
-      margin: 0 auto 32px;
-    }
-
-    .rrtf-cta-card {
-      padding: 28px 20px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      text-align: center;
-      transition: all 0.2s ease;
-      cursor: pointer;
-    }
-
-    .rrtf-cta-card:hover {
-      border-color: var(--text-quaternary);
-      background: var(--hover);
-    }
-
-    .rrtf-cta-card-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 16px;
-    }
-
-    .rrtf-cta-card h4 {
-      font-size: 16px;
-      font-weight: 500;
-      margin: 0 0 6px;
-    }
-
-    .rrtf-cta-card p {
-      font-size: 13px;
-      color: var(--text-tertiary);
-      margin: 0;
-    }
-
-    /* Footer */
-    .rrtf-footer {
-      padding: 40px 24px;
-      text-align: center;
-    }
-
-    .rrtf-footer-brand {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 20px;
-      font-weight: 500;
-      font-size: 16px;
-    }
-
-    .rrtf-footer-brand svg {
-      width: 32px;
-      height: 32px;
-    }
-
-    .rrtf-footer-contact {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 16px 28px;
-      margin-bottom: 20px;
-    }
-
-    .rrtf-footer-contact a,
-    .rrtf-footer-contact span {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 14px;
-      color: var(--text-secondary);
-      text-decoration: none;
-      transition: color 0.15s ease;
-    }
-
-    .rrtf-footer-contact a:hover {
-      color: var(--text-primary);
-      text-decoration: underline;
-    }
-
-    .rrtf-footer-contact svg {
-      width: 16px;
-      height: 16px;
-      flex-shrink: 0;
-    }
-
-    .rrtf-footer p {
-      font-size: 13px;
-      color: var(--text-tertiary);
-      margin: 0 0 4px;
-    }
-
-    /* Responsive */
-    @media (max-width: 640px) {
-      .rrtf-nav-links { display: none; }
-      .rrtf-hero h1 { font-size: 28px; }
-      .rrtf-section h2 { font-size: 24px; }
-      .rrtf-hero-actions { flex-direction: column; align-items: center; }
-      .rrtf-btn { width: 100%; max-width: 280px; justify-content: center; }
-      .rrtf-footer-contact { flex-direction: column; gap: 10px; }
-      .rrtf-challenges-box { padding: 20px 24px; }
-    }
-
-    html { scroll-behavior: smooth; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Refuge to Reach Tech Foundation | Kakuma, Kenya</title>
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   OFFICIAL RRTF LOGO COLORS (sampled from the logo)
+   ============================================================ */
+:root{
+  --blue:      #1B7ABE;
+  --blue-lt:   #86B9DD;
+  --green:     #2AA17E;
+  --green-lt:  #93C2AB;
+  --charcoal:  #3A4652;
+
+  --tint:   color-mix(in srgb, var(--blue) 8%, #fff);
+  --tint-g: color-mix(in srgb, var(--green) 10%, #fff);
+  --ink:    #2B3540;
+  --muted:  #5D6B7A;
+  --soft:   color-mix(in srgb, var(--blue) 5%, #fff);
+  --line:   color-mix(in srgb, var(--blue) 16%, #fff);
+  --grad:   linear-gradient(135deg, var(--blue), var(--green));
+  --radius: 18px;
+  --shadow: 0 10px 30px color-mix(in srgb, var(--blue) 14%, transparent);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',system-ui,sans-serif;color:var(--ink);line-height:1.6;background:#fff}
+a{text-decoration:none;color:inherit}
+section{padding:72px 0}
+.container{width:min(1140px,92%);margin-inline:auto}
+.center{text-align:center}
+
+/* ---------- Subtle logo watermark (popped a bit) ---------- */
+.wm{position:relative;overflow:hidden}
+.wm::after{
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:url('logo.png') center / 250px repeat;
+  opacity:.08;mix-blend-mode:multiply;
+}
+.wm-on-dark::after{filter:brightness(0) invert(1);mix-blend-mode:screen;opacity:.1}
+.wm > .container{position:relative;z-index:1}
+
+.kicker{display:inline-block;font-weight:800;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--blue);background:var(--tint);padding:6px 14px;border-radius:999px;margin-bottom:14px}
+h2{font-size:clamp(1.7rem,3.4vw,2.4rem);color:var(--charcoal);font-weight:800;line-height:1.2}
+.sub{color:var(--muted);max-width:640px;margin-top:10px}
+.center .sub{margin-inline:auto}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:800;padding:14px 28px;
+  border-radius:999px;transition:.25s;border:none;cursor:pointer;font-family:inherit;font-size:1rem}
+.btn-brand{background:var(--grad);color:#fff;box-shadow:var(--shadow)}
+.btn-brand:hover{transform:translateY(-3px);filter:brightness(1.08)}
+.btn-light{background:#fff;color:var(--blue);box-shadow:0 8px 22px rgba(0,0,0,.15)}
+.btn-light:hover{transform:translateY(-3px)}
+.btn-line{border:2px solid rgba(255,255,255,.6);color:#fff;background:rgba(255,255,255,.08)}
+.btn-line:hover{background:rgba(255,255,255,.18);transform:translateY(-3px)}
+
+/* ---------- Header ---------- */
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.93);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);box-shadow:0 2px 14px rgba(0,0,0,.05)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-img{width:48px;height:48px;object-fit:contain}
+.logo-text b{display:block;color:var(--charcoal);font-size:.98rem;line-height:1.15}
+.logo-text span{font-size:.72rem;color:var(--muted)}
+.nav-links{display:flex;gap:26px;font-weight:700;font-size:.95rem}
+.nav-links a{color:var(--ink);position:relative;padding:4px 0}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-2px;height:3px;width:0;border-radius:3px;
+  background:var(--grad);transition:.25s}
+.nav-links a:hover::after{width:100%}
+.nav .btn{padding:10px 22px;font-size:.9rem}
+@media(max-width:960px){.nav-links{display:none}}
+
+/* ---------- Hero (with photo postcards) ---------- */
+.hero{background:var(--grad);color:#fff;padding:96px 0 104px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;width:460px;height:460px;border-radius:50%;
+  background:#fff;opacity:.07;top:-180px;right:-140px}
+.hero-wm{position:absolute;right:-70px;bottom:-70px;width:360px;opacity:.16;
+  filter:brightness(0) invert(1);transform:rotate(-10deg);pointer-events:none;user-select:none}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;position:relative;z-index:1}
+.hero-tag{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);
+  padding:8px 18px;border-radius:999px;font-weight:700;font-size:.85rem;margin-bottom:22px}
+.hero h1{font-size:clamp(2.1rem,4.6vw,3.2rem);font-weight:800;line-height:1.12}
+.hero h1 em{font-style:normal;color:#fff;border-bottom:5px solid color-mix(in srgb,#fff 45%,transparent)}
+.hero p{margin:20px 0 30px;font-size:1.1rem;color:color-mix(in srgb,#fff 88%,transparent);max-width:600px}
+.hero-pin{font-weight:700;margin-bottom:22px;color:#fff}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+.hero-photos{position:relative;min-height:460px}
+.hero-photos img{position:absolute;object-fit:cover;border:5px solid #fff;border-radius:18px;
+  box-shadow:0 24px 60px rgba(0,0,0,.35)}
+.hp-1{width:80%;height:86%;top:0;right:0;transform:rotate(2deg)}
+.hp-2{width:55%;height:52%;bottom:0;left:0;transform:rotate(-4deg)}
+@media(max-width:960px){.hero-grid{grid-template-columns:1fr}.hero-photos{min-height:400px;max-width:560px}}
+
+/* ---------- About ---------- */
+.about{background:var(--soft)}
+.vm-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:36px}
+.vm-card{background:#fff;border-radius:var(--radius);padding:32px;box-shadow:var(--shadow);border-top:6px solid var(--blue)}
+.vm-card.green{border-top-color:var(--green)}
+.vm-card h3{display:flex;align-items:center;gap:10px;color:var(--charcoal);font-size:1.2rem;margin-bottom:10px}
+.dot{width:14px;height:14px;border-radius:4px;background:var(--blue);flex:none}
+.vm-card.green .dot{background:var(--green)}
+.pills{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+.pill{padding:10px 20px;border-radius:999px;font-weight:700;font-size:.92rem;background:var(--tint);
+  color:var(--blue);transition:.2s;cursor:default}
+.pill:nth-child(even){background:var(--tint-g);color:var(--green)}
+.pill:hover{transform:translateY(-2px);filter:brightness(.97)}
+@media(max-width:760px){.vm-grid{grid-template-columns:1fr}}
+
+/* ---------- Programs ---------- */
+.prog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:24px;margin-top:40px}
+.prog{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+  display:flex;flex-direction:column;transition:.25s}
+.prog:hover{transform:translateY(-8px);box-shadow:var(--shadow);border-color:var(--blue)}
+.prog-head{display:flex;align-items:center;gap:14px;padding:24px 26px;background:var(--tint)}
+.p-ico{width:48px;height:48px;border-radius:12px;background:var(--grad);display:grid;place-items:center;flex:none}
+.p-ico svg{width:24px;height:24px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.prog-head h3{color:var(--charcoal);font-size:1.15rem}
+.prog-body{padding:22px 26px 26px;display:flex;flex-direction:column;gap:8px;flex:1}
+.prog-body li{list-style:none;padding-left:24px;position:relative;font-size:.94rem}
+.prog-body li::before{content:"✔";position:absolute;left:0;color:var(--green);font-weight:800}
+.prog-for{margin-top:auto;padding-top:14px;font-size:.83rem;font-weight:700;color:var(--muted);border-top:1px dashed var(--line)}
+
+/* ---------- Beneficiaries ---------- */
+.benef{background:var(--charcoal);color:#fff}
+.benef .kicker{background:rgba(255,255,255,.12);color:var(--green-lt)}
+.benef h2{color:#fff}
+.benef .sub{color:color-mix(in srgb,#fff 75%,transparent)}
+.benef-grid{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:34px}
+.b-chip{padding:13px 24px;border-radius:12px;font-weight:700;background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.28);transition:.2s}
+.b-chip:hover{background:#fff;color:var(--blue);transform:scale(1.04)}
+
+/* ---------- Gallery ---------- */
+.g-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:230px;gap:18px;margin-top:40px}
+.g-item{position:relative;border-radius:16px;overflow:hidden;cursor:pointer;box-shadow:var(--shadow)}
+.g-item img{width:100%;height:100%;object-fit:cover;transition:.45s}
+.g-item:hover img{transform:scale(1.06)}
+.g-item figcaption{position:absolute;left:0;right:0;bottom:0;padding:44px 18px 14px;color:#fff;
+  font-weight:700;font-size:.92rem;background:linear-gradient(transparent,rgba(18,28,38,.88))}
+.g1{grid-column:span 2;grid-row:span 2}
+.g5{grid-column:span 2}
+@media(max-width:900px){.g-grid{grid-template-columns:1fr;grid-auto-rows:280px}
+  .g1,.g5{grid-column:span 1;grid-row:span 1}}
+
+/* Lightbox */
+.lightbox{position:fixed;inset:0;background:rgba(10,18,26,.92);z-index:100;display:none;
+  align-items:center;justify-content:center;flex-direction:column;padding:24px}
+.lightbox.open{display:flex}
+.lightbox img{max-width:min(92vw,920px);max-height:76vh;border-radius:14px;border:4px solid #fff;
+  box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.lightbox p{color:#fff;margin-top:16px;font-weight:700;text-align:center}
+.lightbox .close{position:absolute;top:18px;right:22px;background:#fff;color:var(--charcoal);border:none;
+  width:46px;height:46px;border-radius:50%;font-size:1.25rem;font-weight:800;cursor:pointer}
+
+/* ---------- Goals ---------- */
+.goals-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:40px}
+.goal{display:flex;gap:16px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:24px;transition:.25s}
+.goal:hover{border-color:var(--blue);box-shadow:var(--shadow);transform:translateY(-4px)}
+.goal-num{flex:none;width:44px;height:44px;border-radius:50%;background:var(--blue);color:#fff;
+  display:grid;place-items:center;font-weight:800}
+.goal:nth-child(even) .goal-num{background:var(--green)}
+.goal p{font-weight:600;color:var(--ink)}
+
+/* ---------- Challenges ---------- */
+.challenges{background:var(--soft)}
+.ch-grid{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:30px}
+.ch-item{background:#fff;border-left:5px solid var(--blue);border-radius:12px;padding:18px 24px;
+  font-weight:700;color:var(--ink);box-shadow:var(--shadow)}
+.ch-item:nth-child(even){border-left-color:var(--green)}
+
+/* ---------- Get involved ---------- */
+.involve{background:var(--grad);color:#fff}
+.involve h2{color:#fff}
+.involve .sub{color:color-mix(in srgb,#fff 82%,transparent)}
+.inv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;margin-top:40px}
+.inv-card{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.32);border-radius:var(--radius);
+  padding:30px;text-align:center;transition:.25s}
+.inv-card:hover{background:#fff;transform:translateY(-6px)}
+.inv-card h3{margin:12px 0 8px;color:#fff;font-size:1.15rem}
+.inv-card p{font-size:.92rem;color:color-mix(in srgb,#fff 85%,transparent)}
+.inv-card:hover h3{color:var(--charcoal)}
+.inv-card:hover p{color:var(--muted)}
+.inv-card .big{font-size:1.6rem;font-weight:800}
+.inv-card:hover .big{color:var(--green)}
+
+/* ---------- Contact ---------- */
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:44px;margin-top:40px;align-items:start}
+.c-info{display:flex;flex-direction:column;gap:18px}
+.c-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;display:flex;gap:16px}
+.c-ico{flex:none;width:48px;height:48px;border-radius:12px;background:var(--grad);display:grid;place-items:center;color:#fff;font-size:1.25rem}
+.c-card h4{color:var(--charcoal)}
+.c-card a{color:var(--blue);font-weight:600}
+.c-card a:hover{color:var(--green)}
+form{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:36px}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+label{font-weight:700;font-size:.86rem;color:var(--charcoal);display:block;margin:14px 0 6px}
+input,select,textarea{width:100%;padding:13px 16px;border:2px solid var(--line);border-radius:12px;
+  font-family:inherit;font-size:.95rem;background:var(--soft);transition:.2s}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--blue);background:#fff;
+  box-shadow:0 0 0 4px var(--tint)}
+.form-btns{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px}
+.btn-wa{background:var(--green);color:#fff;box-shadow:0 8px 22px color-mix(in srgb,var(--green) 40%,transparent)}
+.btn-wa:hover{transform:translateY(-3px);filter:brightness(1.07)}
+.btn-email{background:var(--blue);color:#fff;box-shadow:var(--shadow)}
+.btn-email:hover{transform:translateY(-3px);filter:brightness(1.07)}
+.form-hint{margin-top:14px;font-size:.85rem;color:var(--muted);text-align:center}
+@media(max-width:860px){.contact-grid,.f-row{grid-template-columns:1fr}}
+@media(max-width:560px){.form-btns{grid-template-columns:1fr}}
+
+/* ---------- Founders carousel ---------- */
+.founders{background:var(--soft)}
+.f-stage{margin-top:48px}
+.f-slide{display:none;grid-template-columns:.85fr 1.15fr;gap:52px;align-items:center}
+.f-slide.active{display:grid;animation:fIn .6s ease}
+@keyframes fIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.f-slide.flip .f-photo-wrap{order:2}
+.f-photo-wrap{position:relative;width:250px;height:250px;margin-inline:auto}
+.f-photo-wrap::before{content:"";position:absolute;inset:0;border-radius:50%;background:var(--grad);
+  transform:translate(16px,16px);opacity:.35}
+.f-photo{position:relative;width:100%;height:100%;border-radius:50%;object-fit:cover;border:6px solid #fff;
+  box-shadow:0 22px 55px color-mix(in srgb, var(--blue) 28%, transparent)}
+.f-quote{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:36px 38px;box-shadow:var(--shadow)}
+.f-quote::before{content:"\201C";position:absolute;top:6px;left:20px;font-size:4.5rem;font-weight:800;
+  color:var(--green);opacity:.35;line-height:1}
+.f-quote p{font-size:1.06rem;font-weight:600;color:var(--ink);position:relative}
+.f-name{color:var(--charcoal);font-size:1.12rem;font-weight:800;margin-top:18px}
+.f-role{color:var(--blue);font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.08em}
+.f-nav{display:flex;gap:14px;justify-content:center;align-items:center;margin-top:34px}
+.f-arrow{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#fff;
+  color:var(--blue);font-size:1.05rem;cursor:pointer;transition:.2s}
+.f-arrow:hover{background:var(--blue);color:#fff}
+.f-dot{width:11px;height:11px;border-radius:99px;border:none;background:var(--line);cursor:pointer;transition:.3s}
+.f-dot.active{width:28px;background:var(--grad)}
+@media(max-width:860px){.f-slide{grid-template-columns:1fr;gap:28px}
+  .f-slide.flip .f-photo-wrap{order:0}}
+
+/* ---------- Toast ---------- */
+.toast{position:fixed;left:50%;bottom:16px;transform:translateX(-50%) translateY(160%);
+  background:var(--charcoal);color:#fff;padding:16px 26px;border-radius:14px;font-weight:700;
+  box-shadow:0 14px 40px rgba(0,0,0,.3);transition:.35s;z-index:99;display:flex;gap:14px;align-items:center;
+  max-width:92vw;text-align:left}
+.toast.show{transform:translateX(-50%)}
+.toast button{background:var(--green);color:#fff;border:none;border-radius:8px;padding:6px 16px;
+  font-weight:800;cursor:pointer;font-family:inherit;flex:none}
+
+/* ---------- Footer ---------- */
+footer{background:var(--charcoal);color:color-mix(in srgb,#fff 75%,transparent);padding:60px 0 30px;
+  border-top:6px solid;border-image:linear-gradient(90deg,var(--blue),var(--green)) 1}
+.foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:36px}
+.foot-grid h4{color:#fff;margin-bottom:14px}
+.foot-grid a{display:block;padding:4px 0;font-size:.93rem}
+.foot-grid a:hover{color:var(--green-lt)}
+.foot-logo{background:#fff;border-radius:12px;padding:6px;width:56px;height:56px;object-fit:contain}
+.foot-tag{margin-top:14px;font-size:.92rem}
+.foot-bottom{margin-top:44px;padding-top:20px;border-top:1px solid rgba(255,255,255,.15);
+  font-size:.85rem;text-align:center}
+@media(max-width:760px){.foot-grid{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 
-<div class="rrtf-wrapper">
-  <!-- Navigation -->
-  <nav class="rrtf-nav">
-    <div class="rrtf-nav-brand">
-      <svg class="rrtf-nav-logo" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M100 10C50.3 10 10 50.3 10 100" stroke="#0072BC" stroke-width="14" stroke-linecap="round"/>
-        <path d="M190 100C190 149.7 149.7 190 100 190" stroke="#2E8B6E" stroke-width="14" stroke-linecap="round"/>
-        <path d="M100 30C61.3 30 30 61.3 30 100" stroke="#0072BC" stroke-width="8" stroke-linecap="round" opacity="0.6"/>
-        <path d="M170 100C170 138.7 138.7 170 100 170" stroke="#2E8B6E" stroke-width="8" stroke-linecap="round" opacity="0.6"/>
-        <path d="M30 100C30 138.7 61.3 170 100 170" stroke="#3D4550" stroke-width="10" stroke-linecap="round"/>
-        <text x="38" y="118" font-family="Inter, sans-serif" font-size="52" font-weight="600" fill="#0072BC">RR</text>
-        <text x="102" y="118" font-family="Inter, sans-serif" font-size="52" font-weight="600" fill="#2E8B6E">T</text>
-        <text x="132" y="118" font-family="Inter, sans-serif" font-size="52" font-weight="600" fill="#3D4550">F</text>
-      </svg>
-      Refuge to Reach Tech Foundation
-    </div>
-    <div class="rrtf-nav-links">
-      <a href="#about">About</a>
-      <a href="#programs">Programs</a>
-      <a href="#impact">Impact</a>
-      <a href="#contact">Contact</a>
-      <a href="#get-involved" class="rrtf-nav-cta">Get involved</a>
-    </div>
-  </nav>
-
-  <!-- Hero -->
-  <section class="rrtf-hero">
-    <svg class="rrtf-hero-logo" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M100 10C50.3 10 10 50.3 10 100" stroke="#0072BC" stroke-width="14" stroke-linecap="round"/>
-      <path d="M190 100C190 149.7 149.7 190 100 190" stroke="#2E8B6E" stroke-width="14" stroke-linecap="round"/>
-      <path d="M100 30C61.3 30 30 61.3 30 100" stroke="#0072BC" stroke-width="8" stroke-linecap="round" opacity="0.5"/>
-      <path d="M170 100C170 138.7 138.7 170 100 170" stroke="#2E8B6E" stroke-width="8" stroke-linecap="round" opacity="0.5"/>
-      <path d="M30 100C30 138.7 61.3 170 100 170" stroke="#3D4550" stroke-width="10" stroke-linecap="round"/>
-      <text x="38" y="118" font-family="Inter, sans-serif" font-size="52" font-weight="600" fill="#0072BC">RR</text>
-      <text x="102" y="118" font-family="Inter, sans-serif" font-size="52" font-weight="600" fill="#2E8B6E">T</text>
-      <text x="132" y="118" font-family="Inter, sans-serif" font-size="52" font-weight="600" fill="#3D4550">F</text>
-    </svg>
-
-    <div class="rrtf-hero-tagline">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-        <path d="M2 17l10 5 10-5"/>
-        <path d="M2 12l10 5 10-5"/>
-      </svg>
-      Non-profit, community-driven organization
-    </div>
-
-    <h1>Empowering communities<br>through digital education</h1>
-    <p class="rrtf-hero-subtitle">Bridging the digital divide for refugees and underserved communities through technology access, skills training, and innovation.</p>
-
-    <div class="rrtf-hero-location">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-        <circle cx="12" cy="10" r="3"/>
-      </svg>
-      Kakuma, West Turkana County, Kenya
-    </div>
-
-    <div class="rrtf-hero-actions">
-      <a href="#get-involved" class="rrtf-btn rrtf-btn-primary">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-        </svg>
-        Support our mission
-      </a>
-      <a href="#programs" class="rrtf-btn rrtf-btn-secondary">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="10"/>
-          <path d="M12 16v-4"/>
-          <path d="M12 8h.01"/>
-        </svg>
-        Explore programs
-      </a>
-    </div>
-  </section>
-
-  <!-- About / Mission / Vision -->
-  <section class="rrtf-section" id="about">
-    <div class="rrtf-section-header">
-      <div class="rrtf-section-label">Who we are</div>
-      <h2>Our purpose</h2>
-      <p class="rrtf-section-desc">Technology is not a privilege but a necessity for education, employment, and sustainable development.</p>
-    </div>
-
-    <div class="rrtf-mission-grid">
-      <div class="rrtf-card">
-        <div class="rrtf-card-icon" style="background: var(--rrtf-light-blue);">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0072BC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/>
-            <path d="M2 12h20"/>
-            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-          </svg>
-        </div>
-        <h3>Vision</h3>
-        <p>To build digitally empowered communities where every child and young person has equal access to technology, quality digital education, and opportunities to achieve their full potential.</p>
-      </div>
-
-      <div class="rrtf-card">
-        <div class="rrtf-card-icon" style="background: var(--rrtf-light-green);">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E8B6E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 20h9"/>
-            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
-          </svg>
-        </div>
-        <h3>Mission</h3>
-        <p>To transform lives by providing accessible digital education, technology resources, and innovative learning opportunities that equip refugees and underserved communities with skills for education, employment, entrepreneurship, and sustainable development.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Core Values -->
-  <section class="rrtf-section">
-    <div class="rrtf-section-header">
-      <div class="rrtf-section-label">What guides us</div>
-      <h2>Core values</h2>
-    </div>
-
-    <div class="rrtf-values-grid">
-      <div class="rrtf-value-chip">Integrity</div>
-      <div class="rrtf-value-chip">Innovation</div>
-      <div class="rrtf-value-chip">Inclusion</div>
-      <div class="rrtf-value-chip">Excellence</div>
-      <div class="rrtf-value-chip">Collaboration</div>
-      <div class="rrtf-value-chip">Accountability</div>
-      <div class="rrtf-value-chip">Lifelong learning</div>
-      <div class="rrtf-value-chip">Community empowerment</div>
-    </div>
-  </section>
-
-  <!-- Programs -->
-  <section class="rrtf-section" id="programs">
-    <div class="rrtf-section-header">
-      <div class="rrtf-section-label">What we do</div>
-      <h2>Core programs</h2>
-      <p class="rrtf-section-desc">Practical, hands-on training and resources designed for real-world impact.</p>
-    </div>
-
-    <div class="rrtf-programs-grid">
-      <div class="rrtf-program">
-        <div class="rrtf-program-badge" style="background: var(--rrtf-light-blue); color: var(--rrtf-blue);">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-            <line x1="8" y1="21" x2="16" y2="21"/>
-            <line x1="12" y1="17" x2="12" y2="21"/>
-          </svg>
-          Digital skills
-        </div>
-        <h3>Basic computer skills training</h3>
-        <ul>
-          <li>Computer fundamentals</li>
-          <li>Microsoft Word, Excel, PowerPoint</li>
-          <li>Internet and email</li>
-          <li>Digital communication</li>
-          <li>Online safety and cybersecurity</li>
-        </ul>
-        <div class="rrtf-program-target"><strong>For:</strong> Youth, women, adults, job seekers, refugees, host community members</div>
-      </div>
-
-      <div class="rrtf-program">
-        <div class="rrtf-program-badge" style="background: var(--rrtf-light-green); color: var(--rrtf-green);">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-          </svg>
-          School access
-        </div>
-        <h3>Computer access for school children</h3>
-        <ul>
-          <li>Computers for CBC Grade 6 to Grade 9</li>
-          <li>Digital literacy improvement</li>
-          <li>Online research skills</li>
-          <li>Technology confidence building</li>
-          <li>Preparation for a digital future</li>
-        </ul>
-        <div class="rrtf-program-target"><strong>For:</strong> School children in underserved communities</div>
-      </div>
-
-      <div class="rrtf-program">
-        <div class="rrtf-program-badge" style="background: var(--rrtf-light-gray); color: var(--rrtf-gray);">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2a10 10 0 1 0 10 10H12V2z"/>
-            <path d="M12 2a10 10 0 0 1 10 10"/>
-            <path d="M12 12L2.5 8.5"/>
-          </svg>
-          AI literacy
-        </div>
-        <h3>Basic artificial intelligence</h3>
-        <ul>
-          <li>Introduction to AI concepts</li>
-          <li>Everyday AI applications</li>
-          <li>Responsible AI use</li>
-          <li>AI tools for education</li>
-          <li>AI for productivity and creativity</li>
-        </ul>
-        <div class="rrtf-program-target"><strong>For:</strong> Learners of all ages</div>
-      </div>
-
-      <div class="rrtf-program">
-        <div class="rrtf-program-badge" style="background: var(--rrtf-light-blue); color: var(--rrtf-blue);">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="16 18 22 12 16 6"/>
-            <polyline points="8 6 2 12 8 18"/>
-          </svg>
-          Web development
-        </div>
-        <h3>Website development</h3>
-        <ul>
-          <li>HTML and CSS fundamentals</li>
-          <li>Basic JavaScript</li>
-          <li>Responsive web design</li>
-          <li>Website publishing</li>
-          <li>Personal portfolio development</li>
-        </ul>
-        <div class="rrtf-program-target"><strong>For:</strong> Young people seeking employable tech skills</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Beneficiaries -->
-  <section class="rrtf-section">
-    <div class="rrtf-section-header">
-      <div class="rrtf-section-label">Who we serve</div>
-      <h2>Our beneficiaries</h2>
-    </div>
-
-    <div class="rrtf-beneficiaries">
-      <div class="rrtf-beneficiary">Refugee youth</div>
-      <div class="rrtf-beneficiary">School children</div>
-      <div class="rrtf-beneficiary">Women and girls</div>
-      <div class="rrtf-beneficiary">Teachers</div>
-      <div class="rrtf-beneficiary">Community members</div>
-      <div class="rrtf-beneficiary">Youth groups</div>
-      <div class="rrtf-beneficiary">Local schools</div>
-      <div class="rrtf-beneficiary">Vulnerable households</div>
-    </div>
-  </section>
-
-  <!-- Goals / Impact -->
-  <section class="rrtf-section" id="impact">
-    <div class="rrtf-section-header">
-      <div class="rrtf-section-label">Where we are headed</div>
-      <h2>Our goals</h2>
-      <p class="rrtf-section-desc">Long-term outcomes we are working toward every day.</p>
-    </div>
-
-    <div class="rrtf-goals-list">
-      <div class="rrtf-goal">
-        <div class="rrtf-goal-num">1</div>
-        <div class="rrtf-goal-text">Bridge the digital divide between refugee, host, and underserved communities</div>
-      </div>
-      <div class="rrtf-goal">
-        <div class="rrtf-goal-num">2</div>
-        <div class="rrtf-goal-text">Increase access to quality digital education and learning resources</div>
-      </div>
-      <div class="rrtf-goal">
-        <div class="rrtf-goal-num">3</div>
-        <div class="rrtf-goal-text">Improve digital literacy across refugee and host communities</div>
-      </div>
-      <div class="rrtf-goal">
-        <div class="rrtf-goal-num">4</div>
-        <div class="rrtf-goal-text">Empower young people with employable digital skills</div>
-      </div>
-      <div class="rrtf-goal">
-        <div class="rrtf-goal-num">5</div>
-        <div class="rrtf-goal-text">Support innovation and entrepreneurship in underserved areas</div>
-      </div>
-      <div class="rrtf-goal">
-        <div class="rrtf-goal-num">6</div>
-        <div class="rrtf-goal-text">Create pathways to decent employment and self-reliance</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Challenges — single text box, names only -->
-  <section class="rrtf-section">
-    <div class="rrtf-section-header">
-      <div class="rrtf-section-label">Reality check</div>
-      <h2>Challenges we face</h2>
-    </div>
-
-    <div class="rrtf-challenges-box">
-      <h3>Key challenges</h3>
-      <ul>
-        <li>Limited access to computers</li>
-        <li>Financial constraints</li>
-        <li>Limited internet connectivity</li>
-        <li>Shortage of qualified trainers</li>
-        <li>Low digital awareness</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section class="rrtf-contact-section" id="contact">
-    <div class="rrtf-section-header" style="margin-bottom: 32px;">
-      <div class="rrtf-section-label">Reach us</div>
-      <h2>Contact information</h2>
-      <p class="rrtf-section-desc">Based in Kakuma, serving West Turkana County and beyond.</p>
-    </div>
-
-    <div class="rrtf-contact-grid">
-      <div class="rrtf-contact-item">
-        <div class="rrtf-contact-icon" style="background: var(--rrtf-light-blue);">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#0072BC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
-          </svg>
-        </div>
-        <div>
-          <h4>Phone</h4>
-          <a href="tel:+254790544211">+254 790 544211</a>
-          <a href="tel:+254703494870">+254 703 494870</a>
-          <a href="tel:+254701497377">+254 701 497377</a>
-        </div>
-      </div>
-
-      <div class="rrtf-contact-item">
-        <div class="rrtf-contact-icon" style="background: var(--rrtf-light-green);">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#2E8B6E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-            <polyline points="22,6 12,13 2,6"/>
-          </svg>
-        </div>
-        <div>
-          <h4>Email</h4>
-          <a href="mailto:refugetoreach@gmail.com">refugetoreach@gmail.com</a>
-        </div>
-      </div>
-
-      <div class="rrtf-contact-item">
-        <div class="rrtf-contact-icon" style="background: var(--rrtf-light-gray);">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#3D4550" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-            <circle cx="12" cy="10" r="3"/>
-          </svg>
-        </div>
-        <div>
-          <h4>Location</h4>
-          <span>Kakuma, West Turkana County<br>Kenya</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA / Get Involved -->
-  <section class="rrtf-cta-section" id="get-involved">
-    <h2>Join us in building digital futures</h2>
-    <p>Digital skills transform lives and open doors to education, employment, and innovation. Together, we can ensure every learner has the opportunity to thrive.</p>
-
-    <div class="rrtf-cta-grid">
-      <div class="rrtf-cta-card">
-        <div class="rrtf-cta-card-icon" style="background: var(--rrtf-light-blue);">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0072BC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-            <circle cx="9" cy="7" r="4"/>
-            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-          </svg>
-        </div>
-        <h4>Partner with us</h4>
-        <p>Organizations, schools, and companies</p>
-      </div>
-
-      <div class="rrtf-cta-card">
-        <div class="rrtf-cta-card-icon" style="background: var(--rrtf-light-green);">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2E8B6E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="12" y1="1" x2="12" y2="23"/>
-            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-          </svg>
-        </div>
-        <h4>Make a donation</h4>
-        <p>Fund equipment, training, and resources</p>
-      </div>
-
-      <div class="rrtf-cta-card">
-        <div class="rrtf-cta-card-icon" style="background: var(--rrtf-light-gray);">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3D4550" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-          </svg>
-        </div>
-        <h4>Volunteer</h4>
-        <p>Share your skills and time</p>
-      </div>
-    </div>
-
-    <a href="mailto:refugetoreach@gmail.com" class="rrtf-btn rrtf-btn-primary">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-        <polyline points="22,6 12,13 2,6"/>
-      </svg>
-      Contact us
+<!-- ======= HEADER ======= -->
+<header>
+  <div class="container nav">
+    <a class="logo" href="#top">
+      <img class="logo-img" src="logo.png" alt="RRTF logo">
+      <div class="logo-text"><b>Refuge to Reach Tech</b><span>Foundation</span></div>
     </a>
-  </section>
+    <nav class="nav-links">
+      <a href="#about">About</a><a href="#programs">Programs</a><a href="#gallery">Gallery</a>
+      <a href="#impact">Impact</a><a href="#founders">Founders</a><a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-brand" href="#get-involved">Get involved</a>
+  </div>
+</header>
 
-  <!-- Footer -->
-  <footer class="rrtf-footer">
-    <div class="rrtf-footer-brand">
-      <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M100 10C50.3 10 10 50.3 10 100" stroke="#0072BC" stroke-width="14" stroke-linecap="round"/>
-        <path d="M190 100C190 149.7 149.7 190 100 190" stroke="#2E8B6E" stroke-width="14" stroke-linecap="round"/>
-        <path d="M30 100C30 138.7 61.3 170 100 170" stroke="#3D4550" stroke-width="10" stroke-linecap="round"/>
-        <text x="38" y="118" font-family="Inter, sans-serif" font-size="52" font-weight="600" fill="#0072BC">RR</text>
-        <text x="102" y="118" font-family="Inter, sans-serif" font-size="52" font-weight="600" fill="#2E8B6E">T</text>
-        <text x="132" y="118" font-family="Inter, sans-serif" font-size="52" font-weight="600" fill="#3D4550">F</text>
-      </svg>
-      Refuge to Reach Tech Foundation
+<!-- ======= HERO ======= -->
+<section class="hero" id="top">
+  <img class="hero-wm" src="logo.png" alt="" aria-hidden="true">
+  <div class="container hero-grid">
+    <div>
+      <span class="hero-tag">Non-profit, community-driven organization</span>
+      <h1>Empowering communities <em>through digital education</em></h1>
+      <p>Bridging the digital divide for refugees and underserved communities through technology access, skills training, and innovation.</p>
+      <div class="hero-pin">📍 Kakuma, West Turkana County, Kenya</div>
+      <div class="hero-btns">
+        <a class="btn btn-light" href="#get-involved">Support our mission</a>
+        <a class="btn btn-line" href="#programs">Explore programs →</a>
+      </div>
     </div>
-
-    <div class="rrtf-footer-contact">
-      <a href="tel:+254790544211">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
-        </svg>
-        +254 790 544211
-      </a>
-      <a href="tel:+254703494870">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
-        </svg>
-        +254 703 494870
-      </a>
-      <a href="tel:+254701497377">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
-        </svg>
-        +254 701 497377
-      </a>
-      <a href="mailto:refugetoreach@gmail.com">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-          <polyline points="22,6 12,13 2,6"/>
-        </svg>
-        refugetoreach@gmail.com
-      </a>
-      <span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-          <circle cx="12" cy="10" r="3"/>
-        </svg>
-        Kakuma, West Turkana County, Kenya
-      </span>
+    <div class="hero-photos" aria-hidden="true">
+      <img class="hp-1" src="photo-1.jpg" alt="">
+      <img class="hp-2" src="photo-2.jpg" alt="">
     </div>
+  </div>
+</section>
 
-    <p>Empowering refugees and underserved communities through technology.</p>
-    <p style="margin-top: 12px; font-size: 12px;">Built with purpose. Open to partnership.</p>
-  </footer>
+<!-- ======= ABOUT ======= -->
+<section class="about wm" id="about">
+  <div class="container">
+    <span class="kicker">Who we are</span>
+    <h2>Our purpose</h2>
+    <p class="sub">Technology is not a privilege but a necessity for education, employment, and sustainable development.</p>
+    <div class="vm-grid">
+      <div class="vm-card"><h3><span class="dot"></span>Vision</h3>
+        <p>To build digitally empowered communities where every child and young person has equal access to technology, quality digital education, and opportunities to achieve their full potential.</p></div>
+      <div class="vm-card green"><h3><span class="dot"></span>Mission</h3>
+        <p>To transform lives by providing accessible digital education, technology resources, and innovative learning opportunities that equip refugees and underserved communities with skills for education, employment, entrepreneurship, and sustainable development.</p></div>
+    </div>
+    <div style="margin-top:44px">
+      <span class="kicker">What guides us</span>
+      <h2>Core values</h2>
+      <div class="pills">
+        <span class="pill">Integrity</span><span class="pill">Innovation</span><span class="pill">Inclusion</span>
+        <span class="pill">Excellence</span><span class="pill">Collaboration</span><span class="pill">Accountability</span>
+        <span class="pill">Lifelong learning</span><span class="pill">Community empowerment</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= PROGRAMS ======= -->
+<section id="programs" class="wm">
+  <div class="container center">
+    <span class="kicker">What we do</span>
+    <h2>Core programs</h2>
+    <p class="sub">Practical, hands-on training and resources designed for real-world impact.</p>
+    <div class="prog-grid" style="text-align:left">
+      <div class="prog">
+        <div class="prog-head"><div class="p-ico"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><h3>Digital skills</h3></div>
+        <ul class="prog-body">
+          <li>Basic computer skills training</li><li>Computer fundamentals</li><li>Microsoft Word, Excel, PowerPoint</li>
+          <li>Internet and email</li><li>Digital communication</li><li>Online safety and cybersecurity</li>
+          <div class="prog-for">For: Youth, women, adults, job seekers, refugees, host community members</div>
+        </ul>
+      </div>
+      <div class="prog">
+        <div class="prog-head"><div class="p-ico"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><h3>School access</h3></div>
+        <ul class="prog-body">
+          <li>Computer access for school children</li><li>Computers for CBC Grade 6 to Grade 9</li>
+          <li>Digital literacy improvement</li><li>Online research skills</li><li>Technology confidence building</li><li>Preparation for a digital future</li>
+          <div class="prog-for">For: School children in underserved communities</div>
+        </ul>
+      </div>
+      <div class="prog">
+        <div class="prog-head"><div class="p-ico"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg></div><h3>AI literacy</h3></div>
+        <ul class="prog-body">
+          <li>Basic artificial intelligence</li><li>Introduction to AI concepts</li><li>Everyday AI applications</li>
+          <li>Responsible AI use</li><li>AI tools for education</li><li>AI for productivity and creativity</li>
+          <div class="prog-for">For: Learners of all ages</div>
+        </ul>
+      </div>
+      <div class="prog">
+        <div class="prog-head"><div class="p-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><h3>Web development</h3></div>
+        <ul class="prog-body">
+          <li>Website development</li><li>HTML and CSS fundamentals</li><li>Basic JavaScript</li>
+          <li>Responsive web design</li><li>Website publishing</li><li>Personal portfolio development</li>
+          <div class="prog-for">For: Young people seeking employable tech skills</div>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= BENEFICIARIES ======= -->
+<section class="benef wm wm-on-dark">
+  <div class="container center">
+    <span class="kicker">Who we serve</span>
+    <h2>Our beneficiaries</h2>
+    <div class="benef-grid">
+      <span class="b-chip">Refugee youth</span><span class="b-chip">School children</span>
+      <span class="b-chip">Women and girls</span><span class="b-chip">Teachers</span>
+      <span class="b-chip">Community members</span><span class="b-chip">Youth groups</span>
+      <span class="b-chip">Local schools</span><span class="b-chip">Vulnerable households</span>
+    </div>
+  </div>
+</section>
+
+<!-- ======= GALLERY ======= -->
+<section id="gallery" class="wm">
+  <div class="container center">
+    <span class="kicker">Real moments, real impact</span>
+    <h2>Our story in pictures</h2>
+    <p class="sub">A glimpse of our learners, our mentors, and the space where it all happens. Click any photo to enlarge.</p>
+    <div class="g-grid" style="text-align:left">
+      <figure class="g-item g1"><img src="photo-1.jpg" loading="lazy" alt="Mentor guiding two students on a laptop">
+        <figcaption>Hands-on mentorship — learning by doing</figcaption></figure>
+      <figure class="g-item"><img src="photo-2.jpg" loading="lazy" alt="The RRTF learning centre building">
+        <figcaption>Our learning centre in Kakuma</figcaption></figure>
+      <figure class="g-item"><img src="photo-3.jpg" loading="lazy" alt="Learning hall with tables and chairs">
+        <figcaption>The Nyarweng Library learning hall</figcaption></figure>
+      <figure class="g-item"><img src="photo-4.jpg" loading="lazy" alt="Classroom ready for a session">
+        <figcaption>A quiet space, ready for class</figcaption></figure>
+      <figure class="g-item g5"><img src="photo-5.jpg" loading="lazy" alt="Students gathered around a laptop">
+        <figcaption>Curiosity in action — students explore together</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <button class="close" aria-label="Close">✕</button>
+  <img id="lb-img" src="" alt="">
+  <p id="lb-cap"></p>
 </div>
 
+<!-- ======= GOALS ======= -->
+<section id="impact" class="wm">
+  <div class="container center">
+    <span class="kicker">Where we are headed</span>
+    <h2>Our goals</h2>
+    <p class="sub">Long-term outcomes we are working toward every day.</p>
+    <div class="goals-grid" style="text-align:left">
+      <div class="goal"><div class="goal-num">1</div><p>Bridge the digital divide between refugee, host, and underserved communities</p></div>
+      <div class="goal"><div class="goal-num">2</div><p>Increase access to quality digital education and learning resources</p></div>
+      <div class="goal"><div class="goal-num">3</div><p>Improve digital literacy across refugee and host communities</p></div>
+      <div class="goal"><div class="goal-num">4</div><p>Empower young people with employable digital skills</p></div>
+      <div class="goal"><div class="goal-num">5</div><p>Support innovation and entrepreneurship in underserved areas</p></div>
+      <div class="goal"><div class="goal-num">6</div><p>Create pathways to decent employment and self-reliance</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= CHALLENGES ======= -->
+<section class="challenges wm">
+  <div class="container center">
+    <span class="kicker">Reality check</span>
+    <h2>Challenges we face</h2>
+    <div class="ch-grid">
+      <div class="ch-item">Limited access to computers</div>
+      <div class="ch-item">Financial constraints</div>
+      <div class="ch-item">Limited internet connectivity</div>
+      <div class="ch-item">Shortage of qualified trainers</div>
+      <div class="ch-item">Low digital awareness</div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= GET INVOLVED ======= -->
+<section class="involve wm wm-on-dark" id="get-involved">
+  <div class="container center">
+    <h2>Join us in building digital futures</h2>
+    <p class="sub">Digital skills transform lives and open doors to education, employment, and innovation. Together, we can ensure every learner has the opportunity to thrive.</p>
+    <div class="inv-grid">
+      <div class="inv-card"><div class="big">01</div><h3>Partner with us</h3><p>Organizations, schools, and companies</p></div>
+      <div class="inv-card"><div class="big">02</div><h3>Make a donation</h3><p>Fund equipment, training, and resources</p></div>
+      <div class="inv-card"><div class="big">03</div><h3>Volunteer</h3><p>Share your skills and time</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= CONTACT ======= -->
+<section id="contact" class="wm">
+  <div class="container">
+    <span class="kicker">Reach us</span>
+    <h2>Contact information</h2>
+    <p class="sub">Based in Kakuma, serving West Turkana County and beyond.</p>
+    <div class="contact-grid">
+      <div class="c-info">
+        <div class="c-card"><div class="c-ico">📞</div><div><h4>Phone / WhatsApp</h4>
+          <a href="tel:+254703494870">+254 703 494870</a></div></div>
+        <div class="c-card"><div class="c-ico">✉️</div><div><h4>Email</h4>
+          <a href="mailto:refugetoreach@gmail.com">refugetoreach@gmail.com</a></div></div>
+        <div class="c-card"><div class="c-ico">📍</div><div><h4>Location</h4>
+          <p>Kakuma, West Turkana County<br>Kenya</p></div></div>
+      </div>
+      <form id="contactForm">
+        <h3 style="color:var(--charcoal)">Get in touch</h3>
+        <p style="font-size:.9rem;color:var(--muted)">Fill in your details, then choose WhatsApp or Email — whichever is easier for you.</p>
+        <div class="f-row">
+          <div><label>First name *</label><input name="First name" required></div>
+          <div><label>Last name *</label><input name="Last name" required></div>
+        </div>
+        <div class="f-row">
+          <div><label>Email address *</label><input type="email" name="Email" required></div>
+          <div><label>Phone number</label><input name="Phone"></div>
+        </div>
+        <label>Organization (optional)</label><input name="Organization">
+        <label>How would you like to help? *</label>
+        <select name="Wants to help" required>
+          <option value="">Select an option</option>
+          <option>Partner with us</option><option>Make a donation</option>
+          <option>Volunteer</option><option>Sponsor a program</option><option>Other</option>
+        </select>
+        <label>Your message *</label><textarea name="Message" rows="4" required></textarea>
+        <div class="form-btns">
+          <button class="btn btn-wa" type="button" id="waBtn">Send via WhatsApp 💬</button>
+          <button class="btn btn-email" type="button" id="emBtn">Send via Email ✉️</button>
+        </div>
+        <p class="form-hint">💡 Your information will be pre-filled. Choose your preferred contact method above.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ======= FOUNDERS ======= -->
+<section id="founders" class="founders wm">
+  <div class="container center">
+    <span class="kicker">The people behind the mission</span>
+    <h2>Meet our founders</h2>
+    <p class="sub">Three founders, one shared vision — a digitally empowered Kakuma.</p>
+
+    <div class="f-stage" style="text-align:left">
+      <!-- Slide 1 : Chairperson -->
+      <div class="f-slide active">
+        <div class="f-photo-wrap"><img class="f-photo" src="founder-1.jpg" loading="lazy" alt="Biar Mabior Nyok"></div>
+        <div class="f-quote">
+          <p>I see a Kakuma where no child is left behind by the digital revolution — a community where every learner has the skills, the tools, and the confidence to shape their own future.</p>
+          <div class="f-name">Biar Mabior Nyok</div>
+          <div class="f-role">Chairperson</div>
+        </div>
+      </div>
+      <!-- Slide 2 : Vice Chair (photo alternated to the right) -->
+      <div class="f-slide flip">
+        <div class="f-photo-wrap"><img class="f-photo" src="founder-2.jpg" loading="lazy" alt="Makuei Geu"></div>
+        <div class="f-quote">
+          <p>My vision is a self-reliant community where young people don't search for opportunities — they create them, right here in Kakuma, with their own hands and skills.</p>
+          <div class="f-name">Makuei Geu</div>
+          <div class="f-role">Vice Chair</div>
+        </div>
+      </div>
+      <!-- Slide 3 : Programs Director -->
+      <div class="f-slide">
+        <div class="f-photo-wrap"><img class="f-photo" src="founder-3.jpg" loading="lazy" alt="Gach Maluk Wet"></div>
+        <div class="f-quote">
+          <p>Technology gave me a second chance in life. My vision is simple: make that same chance available to every refugee and every member of the host community — one trained learner at a time.</p>
+          <div class="f-name">Gach Maluk Wet</div>
+          <div class="f-role">Programs Director</div>
+        </div>
+      </div>
+
+      <div class="f-nav">
+        <button class="f-arrow" id="fPrev" aria-label="Previous founder">←</button>
+        <button class="f-dot active" aria-label="Biar Mabior Nyok"></button>
+        <button class="f-dot" aria-label="Makuei Geu"></button>
+        <button class="f-dot" aria-label="Gach Maluk Wet"></button>
+        <button class="f-arrow" id="fNext" aria-label="Next founder">→</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= FOOTER ======= -->
+<footer>
+  <div class="container foot-grid">
+    <div>
+      <img class="foot-logo" src="logo.png" alt="RRTF logo">
+      <p class="foot-tag">Empowering refugees and underserved communities through technology.<br><b style="color:#fff">Built with purpose. Open to partnership.</b></p>
+    </div>
+    <div><h4>Quick links</h4>
+      <a href="#about">About</a><a href="#programs">Programs</a><a href="#gallery">Gallery</a>
+      <a href="#impact">Impact</a><a href="#founders">Founders</a><a href="#get-involved">Get involved</a></div>
+    <div><h4>Contact</h4>
+      <a href="tel:+254703494870">+254 703 494870</a>
+      <a href="mailto:refugetoreach@gmail.com">refugetoreach@gmail.com</a>
+      <a href="#contact">Kakuma, West Turkana County, Kenya</a></div>
+  </div>
+  <div class="foot-bottom">© 2026 Refuge to Reach Tech Foundation · Kakuma, Kenya</div>
+</footer>
+
+<div class="toast" id="toast"><span id="toast-msg">✅</span> <button onclick="document.getElementById('toast').classList.remove('show')">Done</button></div>
+
+<script>
+/* ============================================================
+   CONTACT — pre-filled WhatsApp OR Email (Crystal Neat style).
+   No services, no activation — works on any phone or computer.
+   ============================================================ */
+const form  = document.getElementById('contactForm'),
+      toast = document.getElementById('toast'),
+      tMsg  = document.getElementById('toast-msg');
+
+const WA_NUMBER = '254703494870';          /* ← WhatsApp number (no +, no spaces) */
+const EMAIL     = 'refugetoreach@gmail.com';
+
+function showToast(msg){ tMsg.textContent = msg; toast.classList.add('show'); }
+
+function formText(){
+  const v = n => (form.elements[n] ? form.elements[n].value.trim() : '');
+  return 'NEW RRTF ENQUIRY\n' +
+    '-----------------------------\n' +
+    'Name: '         + v('First name') + ' ' + v('Last name') + '\n' +
+    'Email: '        + v('Email') + '\n' +
+    'Phone: '        + (v('Phone') || '—') + '\n' +
+    'Organization: ' + (v('Organization') || '—') + '\n' +
+    'Wants to: '     + v('Wants to help') + '\n' +
+    '-----------------------------\n' +
+    v('Message');
+}
+
+/* WhatsApp button */
+document.getElementById('waBtn').addEventListener('click', ()=>{
+  if(!form.reportValidity()) return;
+  window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(formText()), '_blank');
+  showToast('💬 WhatsApp opened — press Send there to reach us.');
+});
+
+/* Email button */
+document.getElementById('emBtn').addEventListener('click', ()=>{
+  if(!form.reportValidity()) return;
+  const subject = encodeURIComponent('RRTF enquiry — ' + form.elements['Wants to help'].value +
+                    ' (' + form.elements['First name'].value + ' ' + form.elements['Last name'].value + ')');
+  window.location.href = 'mailto:' + EMAIL + '?subject=' + subject + '&body=' + encodeURIComponent(formText());
+  showToast('✉️ Your email app opened — press Send to reach us.');
+});
+
+/* Gallery lightbox */
+const lb = document.getElementById('lightbox'),
+      lbImg = document.getElementById('lb-img'),
+      lbCap = document.getElementById('lb-cap');
+document.querySelectorAll('.g-item').forEach(fig=>{
+  fig.addEventListener('click', ()=>{
+    lbImg.src = fig.querySelector('img').src;
+    lbCap.textContent = fig.querySelector('figcaption').textContent;
+    lb.classList.add('open');
+  });
+});
+lb.addEventListener('click', e=>{ if(!e.target.closest('img')) lb.classList.remove('open'); });
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') lb.classList.remove('open'); });
+
+/* Founders carousel — auto-rotates every 6s */
+const fSlides = [...document.querySelectorAll('.f-slide')],
+      fDots   = [...document.querySelectorAll('.f-dot')];
+let fI = 0, fTimer;
+function fShow(i){
+  fI = (i + fSlides.length) % fSlides.length;
+  fSlides.forEach((s,k)=>s.classList.toggle('active', k===fI));
+  fDots.forEach((d,k)=>d.classList.toggle('active', k===fI));
+}
+function fAuto(){ clearInterval(fTimer); fTimer = setInterval(()=>fShow(fI+1), 6000); }
+fDots.forEach((d,k)=>d.addEventListener('click', ()=>{ fShow(k); fAuto(); }));
+document.getElementById('fPrev').addEventListener('click', ()=>{ fShow(fI-1); fAuto(); });
+document.getElementById('fNext').addEventListener('click', ()=>{ fShow(fI+1); fAuto(); });
+fShow(0); fAuto();
+</script>
 </body>
 </html>
