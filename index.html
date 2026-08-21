@@ -177,13 +177,13 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.93);backdro
   font-weight:700;color:var(--ink);box-shadow:var(--shadow)}
 .ch-item:nth-child(even){border-left-color:var(--green)}
 
-/* ---------- Get involved ---------- */
+/* ---------- Get involved (cards now link to the form) ---------- */
 .involve{background:var(--grad);color:#fff}
 .involve h2{color:#fff}
 .involve .sub{color:color-mix(in srgb,#fff 82%,transparent)}
 .inv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;margin-top:40px}
 .inv-card{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.32);border-radius:var(--radius);
-  padding:30px;text-align:center;transition:.25s}
+  padding:30px;text-align:center;transition:.25s;cursor:pointer;display:block}
 .inv-card:hover{background:#fff;transform:translateY(-6px)}
 .inv-card h3{margin:12px 0 8px;color:#fff;font-size:1.15rem}
 .inv-card p{font-size:.92rem;color:color-mix(in srgb,#fff 85%,transparent)}
@@ -201,6 +201,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.93);backdro
 .c-card a{color:var(--blue);font-weight:600}
 .c-card a:hover{color:var(--green)}
 form{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:36px}
+form.flash{animation:flash 1.2s ease}
+@keyframes flash{0%{box-shadow:0 0 0 8px var(--tint-g)}100%{box-shadow:var(--shadow)}}
 .f-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 label{font-weight:700;font-size:.86rem;color:var(--charcoal);display:block;margin:14px 0 6px}
 input,select,textarea{width:100%;padding:13px 16px;border:2px solid var(--line);border-radius:12px;
@@ -445,15 +447,18 @@ footer{background:var(--charcoal);color:color-mix(in srgb,#fff 75%,transparent);
   </div>
 </section>
 
-<!-- ======= GET INVOLVED ======= -->
+<!-- ======= GET INVOLVED (cards jump to the form + pre-select the option) ======= -->
 <section class="involve wm wm-on-dark" id="get-involved">
   <div class="container center">
     <h2>Join us in building digital futures</h2>
     <p class="sub">Digital skills transform lives and open doors to education, employment, and innovation. Together, we can ensure every learner has the opportunity to thrive.</p>
     <div class="inv-grid">
-      <div class="inv-card"><div class="big">01</div><h3>Partner with us</h3><p>Organizations, schools, and companies</p></div>
-      <div class="inv-card"><div class="big">02</div><h3>Make a donation</h3><p>Fund equipment, training, and resources</p></div>
-      <div class="inv-card"><div class="big">03</div><h3>Volunteer</h3><p>Share your skills and time</p></div>
+      <a class="inv-card" href="#contact" data-help="Partner with us">
+        <div class="big">01</div><h3>Partner with us</h3><p>Organizations, schools, and companies</p></a>
+      <a class="inv-card" href="#contact" data-help="Make a donation">
+        <div class="big">02</div><h3>Make a donation</h3><p>Fund equipment, training, and resources</p></a>
+      <a class="inv-card" href="#contact" data-help="Volunteer">
+        <div class="big">03</div><h3>Volunteer</h3><p>Share your skills and time</p></a>
     </div>
   </div>
 </section>
@@ -572,7 +577,6 @@ footer{background:var(--charcoal);color:color-mix(in srgb,#fff 75%,transparent);
 <script>
 /* ============================================================
    CONTACT — pre-filled WhatsApp OR Email (Crystal Neat style).
-   No services, no activation — works on any phone or computer.
    ============================================================ */
 const form  = document.getElementById('contactForm'),
       toast = document.getElementById('toast'),
@@ -610,6 +614,15 @@ document.getElementById('emBtn').addEventListener('click', ()=>{
                     ' (' + form.elements['First name'].value + ' ' + form.elements['Last name'].value + ')');
   window.location.href = 'mailto:' + EMAIL + '?subject=' + subject + '&body=' + encodeURIComponent(formText());
   showToast('✉️ Your email app opened — press Send to reach us.');
+});
+
+/* Get-involved cards → jump to form + pre-select the matching option */
+document.querySelectorAll('.inv-card[data-help]').forEach(card=>{
+  card.addEventListener('click', ()=>{
+    const sel = form.elements['Wants to help'];
+    if(sel) sel.value = card.dataset.help;
+    form.classList.remove('flash'); void form.offsetWidth; form.classList.add('flash');
+  });
 });
 
 /* Gallery lightbox */
