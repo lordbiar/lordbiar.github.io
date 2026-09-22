@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Refuge to Reach Tech Foundation | Kakuma, Kenya</title>
+<title>Refuge to Reach Tech Hub | Kakuma, Kenya</title>
 <link rel="icon" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
-   OFFICIAL RRTF LOGO COLORS (sampled from the logo)
+   OFFICIAL RRTH LOGO COLORS (sampled from the logo)
    ============================================================ */
 :root{
   --blue:      #1B7ABE;
@@ -275,8 +275,8 @@ footer{background:var(--charcoal);color:color-mix(in srgb,#fff 75%,transparent);
 <header>
   <div class="container nav">
     <a class="logo" href="#top">
-      <img class="logo-img" src="logo.png" alt="RRTF logo">
-      <div class="logo-text"><b>Refuge to Reach Tech</b><span>Foundation</span></div>
+      <img class="logo-img" src="logo.png" alt="RRTH logo">
+      <div class="logo-text"><b>Refuge to Reach Tech</b><span>Hub</span></div>
     </a>
     <nav class="nav-links">
       <a href="#about">About</a><a href="#programs">Programs</a><a href="#gallery">Gallery</a>
@@ -397,7 +397,7 @@ footer{background:var(--charcoal);color:color-mix(in srgb,#fff 75%,transparent);
     <div class="g-grid" style="text-align:left">
       <figure class="g-item g1"><img src="photo-1.jpg" loading="lazy" alt="Mentor guiding two students on a laptop">
         <figcaption>Hands-on mentorship — learning by doing</figcaption></figure>
-      <figure class="g-item"><img src="photo-2.jpg" loading="lazy" alt="The RRTF learning centre building">
+      <figure class="g-item"><img src="photo-2.jpg" loading="lazy" alt="The RRTH learning centre building">
         <figcaption>Our learning centre in Kakuma</figcaption></figure>
       <figure class="g-item"><img src="photo-3.jpg" loading="lazy" alt="Learning hall with tables and chairs">
         <figcaption>Learning hall</figcaption></figure>
@@ -548,7 +548,7 @@ footer{background:var(--charcoal);color:color-mix(in srgb,#fff 75%,transparent);
 <footer>
   <div class="container foot-grid">
     <div>
-      <img class="foot-logo" src="logo.png" alt="RRTF logo">
+      <img class="foot-logo" src="logo.png" alt="RRTH logo">
       <p class="foot-tag">Empowering refugees and underserved communities through technology.<br><b style="color:#fff">Built with purpose. Open to partnership.</b></p>
     </div>
     <div><h4>Quick links</h4>
@@ -559,7 +559,7 @@ footer{background:var(--charcoal);color:color-mix(in srgb,#fff 75%,transparent);
       <a href="mailto:refugetoreach@gmail.com">refugetoreach@gmail.com</a>
       <a href="#contact">Kakuma, West Turkana County, Kenya</a></div>
   </div>
-  <div class="foot-bottom">© 2026 Refuge to Reach Tech Foundation · Kakuma, Kenya</div>
+  <div class="foot-bottom">© 2026 Refuge to Reach Tech Hub · Kakuma, Kenya</div>
 </footer>
 
 <div class="toast" id="toast"><span id="toast-msg">✅</span> <button onclick="document.getElementById('toast').classList.remove('show')">Done</button></div>
@@ -579,7 +579,7 @@ function showToast(msg){ tMsg.textContent = msg; toast.classList.add('show'); }
 
 function formText(){
   const v = n => (form.elements[n] ? form.elements[n].value.trim() : '');
-  return 'NEW RRTF ENQUIRY\n' +
+  return 'NEW RRTH ENQUIRY\n' +
     '-----------------------------\n' +
     'Name: '         + v('First name') + ' ' + v('Last name') + '\n' +
     'Email: '        + v('Email') + '\n' +
@@ -600,7 +600,7 @@ document.getElementById('waBtn').addEventListener('click', ()=>{
 /* Email button */
 document.getElementById('emBtn').addEventListener('click', ()=>{
   if(!form.reportValidity()) return;
-  const subject = encodeURIComponent('RRTF enquiry — ' + form.elements['Wants to help'].value +
+  const subject = encodeURIComponent('RRTH enquiry — ' + form.elements['Wants to help'].value +
                     ' (' + form.elements['First name'].value + ' ' + form.elements['Last name'].value + ')');
   window.location.href = 'mailto:' + EMAIL + '?subject=' + subject + '&body=' + encodeURIComponent(formText());
   showToast('✉️ Your email app opened — press Send to reach us.');
